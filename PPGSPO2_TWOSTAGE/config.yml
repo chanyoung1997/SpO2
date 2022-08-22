@@ -1,0 +1,60 @@
+
+# Directory
+
+# decive setting
+# Turn it to True if needed
+use_cuda: True
+device_num: 0
+num_workers: 4
+
+#plug-play: 'lgbm', 'cnn'
+model0: 'lgbm'
+model1: 'lgbm'
+model2: 'lgbm'
+
+#
+criteria: 95
+
+# Dataset setting (Directory change)
+train_data_ir: './../Dataset/trainset/ssa_ir.csv'
+train_data_red: './../Dataset/trainset/ssa_red.csv'
+# train_data_green: './../Dataset/ssa_green.csv'
+train_data_spo2: './../Dataset/trainset/spo2(95~100).csv'
+
+test_data_ir: './../Dataset/testset/ssa_ir.csv'
+test_data_red: './../Dataset/testset/ssa_red.csv'
+# test_data_green: './../Dataset/ssa_green.csv'
+test_data_spo2: './../Dataset/testset/spo2(95~100).csv'
+
+# backbone model store
+PATH: 'Dataset/param/baseline(ssa no weight sharing,no globalpooling,layer4).pt'
+
+# loss / scaler Path
+CSV_PATH: 'Dataset/loss/baseline_model.csv'
+Scaler_path: 'Dataset/scaler/baseline_model.pkl'
+#####################################################
+loss_weight: 1
+
+# print loss & save parameter
+print_loss_iter: 100
+save_parameter_iter: 1000
+
+# Training hyper-parameters
+#max_iteration: 100000
+max_iteration: 100000
+check_point: 0
+SIGMA: 2
+epoch: 250
+min_val_loss: 20000000
+patient_threshold: 30
+Probability_of_augmentation : 0.8
+cnum: 64
+learning_rate: 0.001
+beta1: 0.99
+beta2: 0.9
+batch_size: 128
+test_batch_size: 128
+test_batch_size: 256
+shuffle: True
+drop_last: True
+early_stopping : True
